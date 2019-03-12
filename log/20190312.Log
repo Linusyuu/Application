@@ -1,0 +1,51 @@
+2019-03-12 09:41:19: select UserCode, password, UserName,UserType FROM PUB_User where UserCode = '001'
+2019-03-12 09:41:19: success1
+2019-03-12 09:41:25: select UserCode, password, UserName,UserType FROM PUB_User where UserCode = '001'
+2019-03-12 09:41:25: success1
+2019-03-12 09:41:32: select UserCode, password, UserName,UserType FROM PUB_User where UserCode = 'ly'
+2019-03-12 09:41:32: success1
+2019-03-12 09:41:35: insert into pub_LogInfo(UserCode,UserName,ModuleName,AccessionNumber,IPAddress,TimeStamp) values('ly','刘宇','登录','','192.168.1.149',GetDate())
+2019-03-12 09:41:35: success1
+2019-03-12 09:41:37: select b.ComboValue,a.ComboType from ComboData as a,ComboDataDetail as b where a.ComboDataIndex=b.ComboDataIndex and a.ComboUID='ssjbxx_Lab'
+2019-03-12 09:41:37: success6
+2019-03-12 09:41:37: select UserName,UserType from pub_User 
+2019-03-12 09:41:37: success32
+2019-03-12 09:41:37: select a.StudyDate,b.PatientsName ,b.PatientsID,b.PatientsSex ,a.ExamineName ,a.ExamineDoctor ,a.accessionNumber ,a.Lab ,a.RegDate ,(case a.status when 0 then '未开始' when 1 then '进行中' when 2 then '已完成' end) as myStatus,a.ImportantItem from CISReport a,pub_patients b where a.PatientIndex=b.PatientsIndex and a.StudyDate between '2019-01-11 00:00:00' and '2019-03-12 23:59:59'
+2019-03-12 09:41:37: success24
+2019-03-12 09:41:47: select c.*,p.*,CAST(p.PatientsDOB as  datetime) as Birthday from CISReport as c ,pub_patients as p  where c.patientIndex=p.PatientsIndex and c.AccessionNumber = 'DSA216'
+2019-03-12 09:41:47: success1
+2019-03-12 09:41:47: insert into pub_LogInfo(UserCode,UserName,ModuleName,AccessionNumber,IPAddress,TimeStamp) values('ly','刘宇','患者信息','DSA216','192.168.1.149',GetDate())
+2019-03-12 09:41:47: success1
+2019-03-12 09:41:48: insert into pub_LogInfo(UserCode,UserName,ModuleName,AccessionNumber,IPAddress,TimeStamp) values('ly','刘宇','操作记录','DSA216','192.168.1.149',GetDate())
+2019-03-12 09:41:48: success1
+2019-03-12 09:41:48: select * from StudyOperateList where  AccessionNumber='DSA216' order by ModuleName asc,leavedate asc,enterdate asc
+2019-03-12 09:41:49: success187
+2019-03-12 09:41:55: update StudyOperateList set LeaveDate = Getdate() where  UserCode='ly' and ModuleName='患者信息首页' and AccessionNumber='DSA216'
+2019-03-12 09:41:55: success0
+2019-03-12 09:41:55: insert into pub_LogInfo(UserCode,UserName,ModuleName,AccessionNumber,IPAddress,TimeStamp) values('ly','刘宇','患者信息退出','DSA216','192.168.1.149',GetDate())
+2019-03-12 09:41:55: success1
+2019-03-12 09:42:08: select UserCode, password, UserName,UserType FROM PUB_User where UserCode = 'ly'
+2019-03-12 09:42:08: success1
+2019-03-12 09:42:10: insert into pub_LogInfo(UserCode,UserName,ModuleName,AccessionNumber,IPAddress,TimeStamp) values('ly','刘宇','登录','','192.168.1.149',GetDate())
+2019-03-12 09:42:10: success1
+2019-03-12 09:42:10: select distinct m.*,p.UserCode from pub_Menu as m, pub_userPrivilege as p where  m.IsReport= 0 and m.menucode = p.menucode and p.usercode = 'ly' order by m.MenuCode asc 
+2019-03-12 09:42:11: success12
+2019-03-12 09:42:15: select * from EquipmentGroup order by GroupIndex asc
+2019-03-12 09:42:15: success17
+2019-03-12 09:42:15: select * from EquipmentInner where GroupIndex = 1
+2019-03-12 09:42:15: success0
+2019-03-12 09:42:18: select * from EquipmentInner where GroupIndex = 4
+2019-03-12 09:42:18: success0
+2019-03-12 09:42:19: select * from EquipmentInner where GroupIndex = 7
+2019-03-12 09:42:19: success2
+2019-03-12 09:42:21: select * from  EquipmentType  where  EquipmentIndex= 34
+2019-03-12 09:42:21: success4
+2019-03-12 09:42:40: select * from  EquipmentType  where  EquipmentIndex= 34
+2019-03-12 09:42:40: success4
+2019-03-12 09:42:42: select * from  EquipmentType  where  EquipmentIndex= 36
+2019-03-12 09:42:42: success6
+2019-03-12 09:42:58: Start Insert 
+2019-03-12 09:42:58: Insert into EquipmentType(EquipmentIndex,EquipmentType,MainBarCode) Values(@EquipmentIndex,@EquipmentType,@MainBarCode)
+2019-03-12 09:42:58: success1
+2019-03-12 09:42:58: select * from  EquipmentType  where  EquipmentIndex= 36
+2019-03-12 09:42:58: success7
